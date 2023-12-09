@@ -1,30 +1,18 @@
+import java.util.Scanner;
 
 public class Review01 {
-
     public static void main(String[] args) {
-        // TODO 自動生成されたメソッド・スタブ
-
-        int prices = getPrices(1500);
-        int taxin = getTaxin(1500,1500,0.1);
-        int taxes = getTaxes(1500,0.1);
-        System.out.println(prices+"円の商品の税込価格は"+taxin+"円(消費税は"+taxes+"円)です。");
-
-}
-
-    private static int getPrices(int i) {
-        // 商品の価格
-        int result = i ;
-        return result;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("税抜金額を入力してください: ");
+        int price = sc.nextInt();
+        System.out.print("消費税率を入力してください: ");
+        double taxRate = sc.nextDouble();
+        double tax = price * taxRate / 100;
+        double taxIncludedPrice = price + tax;
+        System.out.println(price+"円の商品の"+"税込金額は "+(int)taxIncludedPrice+"円(消費税は" + (int)tax+"円)です。");
     }
-    private static int getTaxin(int i,int j,double d) {
-        //税込額の計算
-        int result = (int) (i + (j * d));
-        return result;
-    }
-    private static int getTaxes(int i,double d) {
-        // 消費税額の計算
-        int result = (int) (i * d);
-        return result;
-   }
 
+    public static double tax(int price,double taxRate) {
+        return taxRate * taxRate / 100;
+    }
 }
