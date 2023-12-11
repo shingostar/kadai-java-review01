@@ -1,14 +1,12 @@
 public class Review01 {
     public static void main(String[] args) {
         int price = 1500;
-        int taxRate = 10;
-        int numbers = 100;
-        int tax = tax(price,taxRate,numbers);
-        int taxIncludedPrice = price + tax;
-        System.out.println(price + "円の商品の" + "税込金額は " + taxIncludedPrice + "円(消費税は" + tax + "円)です。");
+        double taxRate = 0.1;
+        int result = tax(price,taxRate);
+        System.out.println(price + "の商品の税込価格は" + (price + result) + "円（消費税は" + result + "円）です。");
     }
-
-    private static int tax(int price, int taxRate, int numbers) {
-        return price * taxRate / numbers;
+    public static int tax(int price,double taxRate) {
+        int result = (int) (price * taxRate);
+        return result;
     }
 }
